@@ -32,6 +32,8 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , megaparsec
+    , text
   default-language: Haskell2010
 
 executable Geml-exe
@@ -44,6 +46,8 @@ executable Geml-exe
   build-depends:
       Geml
     , base >=4.7 && <5
+    , megaparsec
+    , text
   default-language: Haskell2010
 
 test-suite Geml-test
@@ -57,4 +61,6 @@ test-suite Geml-test
   build-depends:
       Geml
     , base >=4.7 && <5
+    , megaparsec
+    , text
   default-language: Haskell2010
