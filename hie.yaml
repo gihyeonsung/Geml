@@ -1,0 +1,13 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "Geml:lib"
+
+    - path: "./app/Main.hs"
+      component: "Geml:exe:Geml-exe"
+
+    - path: "./app/Paths_Geml.hs"
+      component: "Geml:exe:Geml-exe"
+
+    - path: "./test"
+      component: "Geml:test:Geml-test"
