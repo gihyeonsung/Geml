@@ -4,10 +4,13 @@ import Data.Aeson.Types (Value)
 import qualified Data.Text as T (Text)
 
 newtype Attr = Attr Value
+  deriving (Show, Eq)
 
 newtype Loc = Loc T.Text
+  deriving (Show, Eq)
 
 data Doc = Doc [Block] (Maybe Attr)
+  deriving (Show, Eq)
 
 data Block
   = Header Integer Block
@@ -19,6 +22,7 @@ data Block
   | Embed Loc
   | Math
   | Block Block (Maybe Attr)
+  deriving (Show, Eq)
 
 data Inline
   = Plain T.Text
@@ -32,3 +36,4 @@ data Inline
   | MathInline
   | Space
   | Inline Inline (Maybe Attr)
+  deriving (Show, Eq)

@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Ast
+      Parser
   other-modules:
       Paths_Geml
   hs-source-dirs:
