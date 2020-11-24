@@ -4,6 +4,7 @@ import Ast
 import Data.Text as T
 import Data.Void
 import Text.Megaparsec
+import Text.Megaparsec.Char
 
 type Parser = Parsec Void Text
 
@@ -44,7 +45,7 @@ pInline :: Parser Inline
 pInline = undefined
 
 pPlain :: Parser Inline
-pPlain = undefined
+pPlain = Plain . pack <$> many alphaNumChar
 
 pBold :: Parser Inline
 pBold = undefined
