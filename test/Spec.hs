@@ -20,6 +20,8 @@ specPlainParser =
       parse pPlain "" "hello world" `shouldParse` Plain "hello"
     it "consumes up to spaces" $
       runParser' pPlain (initialState "123\t 456 ") `succeedsLeaving` "\t 456 "
+    it "rejects empty word" $
+      runParser' pPlain (initialState "") `failsLeaving` ""
 
 specSpaceParser :: Spec
 specSpaceParser =

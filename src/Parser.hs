@@ -46,7 +46,7 @@ pInline :: Parser Inline
 pInline = undefined
 
 pPlain :: Parser Inline
-pPlain = Plain . pack <$> many alphaNumChar
+pPlain = Plain . pack <$> some alphaNumChar
 
 pBold :: Parser Inline
 pBold = undefined
