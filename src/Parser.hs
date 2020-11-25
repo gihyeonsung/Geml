@@ -1,6 +1,7 @@
 module Parser where
 
 import Ast
+import Data.Functor
 import Data.Text as T
 import Data.Void
 import Text.Megaparsec
@@ -71,5 +72,6 @@ pEmbedInline = undefined
 pMathInline :: Parser Inline
 pMathInline = undefined
 
+-- TODO: Use hspace1 when stack lts support megaparsec 9.0
 pSpace :: Parser Inline
-pSpace = undefined
+pSpace = Space <$ some (char ' ' <|> tab)

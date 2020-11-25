@@ -11,6 +11,7 @@ import Text.Megaparsec
 main :: IO ()
 main = hspec $ do
   specPlainParser
+  specSpaceParser
 
 specPlainParser :: Spec
 specPlainParser =
@@ -19,3 +20,9 @@ specPlainParser =
       parse pPlain "" "hello world" `shouldParse` Plain "hello"
     it "consumes up to spaces" $
       runParser' pPlain (initialState "123\t 456 ") `succeedsLeaving` "\t 456 "
+
+specSpaceParser :: Spec
+specSpaceParser =
+  describe "space parser" $ do
+    it "consumes multiple horizontal spaces" $
+      parse pSpace "" " \t" `shouldParse` Space
