@@ -43,13 +43,13 @@ pMath :: Parser Block
 pMath = undefined
 
 pInline :: Parser Inline
-pInline = undefined
+pInline = choice [pPlain, pBold, pSpace]
 
 pPlain :: Parser Inline
 pPlain = Plain . pack <$> some alphaNumChar
 
 pBold :: Parser Inline
-pBold = undefined
+pBold = try (Bold <$> between (chunk $ pack "**") (chunk $ pack "**") (many pInline))
 
 pItalic :: Parser Inline
 pItalic = undefined
