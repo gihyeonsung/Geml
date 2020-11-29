@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Parser where
 
 import Ast
@@ -48,7 +50,7 @@ pPlain :: Parser Inline
 pPlain = Plain . pack <$> some alphaNumChar
 
 pBold :: Parser Inline
-pBold = try (Bold <$> between (chunk $ pack "**") (chunk $ pack "**") (many pInline))
+pBold = try (Bold <$> between (string "**") (string "**") (many pInline))
 
 pItalic :: Parser Inline
 pItalic = undefined
