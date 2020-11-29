@@ -1,7 +1,6 @@
 module Parser where
 
 import Ast
-import Data.Functor
 import Data.Text as T
 import Data.Void
 import Text.Megaparsec
