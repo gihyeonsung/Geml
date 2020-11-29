@@ -33,8 +33,8 @@ specBoldParser =
       parse pBold "" "****" `shouldParse` Bold []
     it "parses bold ends with following multiple asterisks" $
       runParser' pBold (initialState "**bold***") `succeedsLeaving` "*"
-    it "fails when without closing asterisks" $
-      runParser' pBold (initialState "**time goes by") `failsLeaving` "**time goes by"
+    it "fails without closing asterisks" $
+      parse pBold "" `shouldFailOn` "**time goes by"
     it "does not yields nested inlines" $
       runParser' pBold (initialState "** ** text ** **") `succeedsLeaving` " text ** **"
 
