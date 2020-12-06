@@ -73,6 +73,5 @@ pEmbedInline = undefined
 pMathInline :: Parser Inline
 pMathInline = undefined
 
--- TODO: Use hspace1 when stack lts support megaparsec 9.0
 pSpace :: Parser Inline
-pSpace = Space <$ some (char ' ' <|> tab)
+pSpace = Space <$ some space1
