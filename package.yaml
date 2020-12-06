@@ -25,6 +25,7 @@ dependencies:
 - hspec
 - hspec-megaparsec
 - megaparsec
+- mtl
 - text
 
 library:
